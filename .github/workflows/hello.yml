@@ -5,14 +5,14 @@ on:
 
 jobs:
   greet:
+    env:
+            MY_ENV: "John Doe"
     runs-on: ubuntu-latest
     steps:
       - name: Greet the User
         run: echo "Hello World!"
-        # List all files in the current directory for comparison before and after actions/checkout@v2.
-      - name: check
-        run: ls -l
-      - name: change the dir 
-        uses: actions/checkout@v2
-      - name: check the dir 
-        run: ls -l
+      - name: Run a multi-line script
+        run: |
+          echo "Hello $MY_ENV"
+          echo "Hello $GITHUB_ACTOR"
+       
