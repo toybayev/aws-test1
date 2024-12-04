@@ -9,3 +9,10 @@ jobs:
     steps:
       - name: Greet the User
         run: echo "Hello World!"
+        # List all files in the current directory for comparison before and after actions/checkout@v2.
+      - name: check
+        run: ls -l
+      - name: change the dir 
+        uses: actions/checkout@v2
+      - name: check the dir 
+        run: ls -l
